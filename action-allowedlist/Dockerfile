@@ -18,6 +18,9 @@ RUN [ $TRUST_CERT -eq 0 ] \
     eval $CMD \
     && export PATH="/root/.local/bin:$PATH" \
     && cd /app \
+    # Setting to /github/home because that is where the GitHub runner will look
+    # for it.
+    && poetry config cache-dir /github/home/.cache/pypoetry \
     && poetry install
 
 ENV PATH="/root/.local/bin:$PATH"
