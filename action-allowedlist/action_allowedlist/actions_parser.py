@@ -5,6 +5,8 @@
 
 import json
 import yaml
+from pathlib import Path
+
 
 def load_json_file(filepath):
     with open(filepath, 'r') as file:
@@ -38,16 +40,18 @@ def get_actions_from_file(workflow, workflow_file_name):
 
     return actions
 
-def get_all_used_actions(workflow_dir):
+def get_all_used_actions(workflow_dir: Path):
     print("Loading Actions YAML files")
-    workflow_files = list(workflow_dir.glob("*.yml"))
-
+    if (workflow_dir / ".github/workflows").exists():
+        workflow_files = list((workflow_dir / ".github/workflows").glob("*.yml"))
+    else:
+        workflow_files = list((workflow_dir / "testing-repo/.github/workflows").glob("*.yml"))
     if not workflow_files:
         print("Could not find workflow files in the specified directory")
         return []
 
     print(f"Found [{len(workflow_files)}] files in the workflows directory")
-    print(workflow_files)
+    #print(workflow_files)
     actions_in_repo = []
     for workflow_file in workflow_files:
         #print(workflow_file)
