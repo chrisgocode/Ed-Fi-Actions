@@ -20,7 +20,7 @@ RUN [ $TRUST_CERT -eq 0 ] \
     && cd /app \
     # Setting the cache directory to somethign more universal
     && poetry config cache-dir /var/cache/pypoetry \
-    && poetry install
+    && poetry install --only main
 
 ENV PATH="/root/.local/bin:$PATH"
 
