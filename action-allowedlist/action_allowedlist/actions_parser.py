@@ -132,5 +132,6 @@ def invoke_validate_actions(approved_path, actions_configuration):
     else:
         print(f"All {num_approved} actions/versions are approved.")
         if num_deprecated > 0:
-            print(f"Deprecated actions found: {num_deprecated}")
+            e = (f"Deprecated actions found: {num_deprecated}")
+            print(f"::warning file=actions_parser.py,title=Deprecated Actions::{e}")
         return found
