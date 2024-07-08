@@ -91,8 +91,7 @@ def invoke_validate_actions(approved_path, actions_configuration):
         ]
         if approved_action_versions:
             print(
-                f"::debug::Approved Versions for {action['actionLink']}: {[a['actionVersion']
-                                                                           for a in approved_action_versions]}"
+                f"::debug::Approved Versions for {action['actionLink']}: {[a['actionVersion'] for a in approved_action_versions]}"
             )
         else:
             print(
@@ -117,7 +116,9 @@ def invoke_validate_actions(approved_path, actions_configuration):
                 num_deprecated += 1
                 found = True
         else:
-            print(f"::debug::Output versions not approved: {action['actionLink']} version {action['actionVersion']}")
+            print(
+                f"::debug::Output versions not approved: {action['actionLink']} version {action['actionVersion']}"
+            )
             unapproved_outputs.append(
                 f"{action['actionLink']} {action['actionVersion']}"
             )
