@@ -12,8 +12,8 @@ along with test cases and their expected behaviors.
 
 1. **Load Approved Actions**: The script must load a JSON file containing the
    approved actions.
-2. **Load Workflow Actions**: The script must load and parse YAML files from
-   the specified workflow directory to identify used actions.
+2. **Load Workflow Actions**: The script must load and parse YAML files from the
+   specified workflow directory to identify used actions.
 3. **Validate Actions**: The script must validate if the used actions are
    approved, deprecated, or denied based on the approved actions list.
 4. **Logging and Output**: The script must log the results and output
